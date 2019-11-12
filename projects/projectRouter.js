@@ -10,7 +10,7 @@ const Project = require('../data/helpers/projectModel');
 router.get('/', async (req, res) => {
     try {
         const projects = Project.get()
-        res.status(200).json(projects);z
+        res.status(200).json(projects);
     } 
     catch(err) {
         console.log(err);
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 
 //=================================//
 router.post('/', async (req, res) => {
-    const action = req.params.body;
+    const action = req.body;
     try {
         const projects = Project.insert(action)
         res.status(200).json({
@@ -80,4 +80,6 @@ router.delete('/:id', async (req, res) => {
     };
 });
 //================================//
+
+module.exports = router;
 

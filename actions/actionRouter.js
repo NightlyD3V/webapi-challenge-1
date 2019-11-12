@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 
 //=========================================//
 router.post('/', async (req, res) => {
-    const action = req.params.body;
+    const action = req.body;
     try {
         const created = await Action.post(action)
         res.status(200).json({
@@ -79,3 +79,5 @@ router.delete('/:id', async (req, res) => {
     };
 });
 //=====================================//
+
+module.exports = router;
