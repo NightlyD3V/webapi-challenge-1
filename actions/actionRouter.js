@@ -3,6 +3,8 @@ const express = require('express');
 const router = express.Router();
 //HELPER
 const Action = require('../data/helpers/actionModel');
+//MIDDLEWARE
+const { validateProjectId } = require('../middleware/custom');
 
 /* GET: /api/actions 🚕*/
 
@@ -23,7 +25,7 @@ router.get('/', async (req, res) => {
 /* POST: /api/actions */
 
 //=========================================//
-router.post('/', async (req, res) => {
+router.post('/', [validateProjectId], async (req, res) => {
     const action = req.body;
     try {
         const created = await Action.post(action)
