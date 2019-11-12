@@ -4,7 +4,7 @@ const router = express.Router();
 //HELPER
 const Action = require('../data/helpers/actionModel');
 //MIDDLEWARE
-const { validateProjectId } = require('../middleware/custom');
+const validateProjectId = require('../middleware/custom');
 
 /* GET: /api/actions 🚕*/
 
