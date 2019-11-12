@@ -25,10 +25,10 @@ router.get('/', async (req, res) => {
 /* POST: /api/actions */
 
 //=========================================//
-router.post('/', [validateProjectId], async (req, res) => {
-    const action = req.body;
+router.post('/:id', [validateProjectId], async (req, res) => {
+    const { id } = req.params;
     try {
-        const created = await Action.post(action)
+        const created = await Action.insert(id)
         res.status(200).json({
             message: `${created} action created!`
         })
