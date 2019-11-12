@@ -5,10 +5,12 @@ const router = express.Router();
 const Project = require('../data/helpers/projectModel');
 
 /* GET: api/projects 🛠*/
+
+//===================================//
 router.get('/', async (req, res) => {
     try {
         const projects = Project.get()
-        res.status(200).json(projects);
+        res.status(200).json(projects);z
     } 
     catch(err) {
         console.log(err);
@@ -17,9 +19,11 @@ router.get('/', async (req, res) => {
         });
     };
 });
-//======================//
+//=================================//
 
 /* POST: /api/projects */
+
+//=================================//
 router.post('/', async (req, res) => {
     const action = req.params.body;
     try {
@@ -35,9 +39,11 @@ router.post('/', async (req, res) => {
         });
     };
 });
-//=========================//
+//===============================//
 
 /* PUT: /api/projects/:id */
+
+//==============================//
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -53,9 +59,11 @@ router.put('/:id', async (req, res) => {
         });
     };
 });
-//============================//
+//================================//
 
 /* DELETE: /api/projects/:id */
+
+//================================//
 router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -71,5 +79,5 @@ router.delete('/:id', async (req, res) => {
         });
     };
 });
-//===========================//
+//================================//
 
